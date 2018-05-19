@@ -53,6 +53,7 @@ class CaresController extends AppController
     {
         $care = $this->Cares->newEntity();
         if ($this->request->is('post')) {
+
             $care = $this->Cares->patchEntity($care, $this->request->getData());
             if ($this->Cares->save($care)) {
                 $this->Flash->success(__('The care has been saved.'));
@@ -116,5 +117,21 @@ class CaresController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * newCare method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function newCare()
+    {
+
+        if ($this->request->is('post')) {
+
+                return $this->redirect(['action' => 'index']);
+
+        }
+
     }
 }

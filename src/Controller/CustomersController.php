@@ -111,7 +111,7 @@ class CustomersController extends AppController
     public function search($id = null)
     {
         if ($this->request->is('post')) {
-            $this->redirect(['action' => 'add']);
+            $this->redirect(['controller' => 'Cares', 'action' => 'new-care']);
         }
     }
 }

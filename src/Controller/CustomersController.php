@@ -104,4 +104,14 @@ class CustomersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * Search method
+     */
+    public function search($id = null)
+    {
+        if ($this->request->is('post')) {
+            $this->redirect(['action' => 'add']);
+        }
+    }
 }

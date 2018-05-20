@@ -110,6 +110,17 @@ class CustomersController extends AppController
      */
     public function search($id = null)
     {
+      $this->viewBuilder()->layout('public');
+        if ($this->request->is('post')) {
+            $this->redirect(['controller' => 'Cares', 'action' => 'new-care']);
+        }
+    }
+
+    /**
+     * Search method
+     */
+    public function newCustomer()
+    {
         if ($this->request->is('post')) {
             $this->redirect(['controller' => 'Cares', 'action' => 'new-care']);
         }

@@ -13,6 +13,13 @@ use App\Controller\AppController;
 class CustomersController extends AppController
 {
 
+
+      public function initialize()
+    {
+      parent::initialize();
+
+    }
+
     /**
      * Index method
      *
@@ -110,11 +117,27 @@ class CustomersController extends AppController
      */
     public function search($id = null)
     {
+
       $this->viewBuilder()->layout('public');
+
         if ($this->request->is('post')) {
             $this->redirect(['controller' => 'Cares', 'action' => 'new-care']);
         }
     }
+
+    public function liste()
+        {
+          if ($this->request->is('ajax')) {
+            $research = $this->request->data['research'];
+            $customers = $this->Customers->find('all')
+                                         ->where(['OR' => [
+                                                      ['last_name LIKE' => '%'.$research.'%'],
+                                                      ['first_name LIKE' => '%'.$research.'%'],
+                                                      ['phone LIKE' => '%'.$research.'%'],]])
+                                         ->limit(5);
+            $this->set('customers', $customers);
+          }
+        }
 
     /**
      * Search method

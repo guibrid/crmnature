@@ -5,33 +5,39 @@
  */
 use Cake\Routing\Router;
 ?>
+<style>
+#research {
+  width: 100%;
+}
+body {
+  text-align: center;
+}
+table {
+  text-align: left;
+}
+td.valid {
+  text-align: right;
+}
+</style>
 
 <div class="container">
 
   <div class="row align-items-center">
-    <div class="col">
-      <h3>Search customer</h3>
-
-      <?= $this->Form->create()  ?>
-        <?= $this->Form->control('research', ['id' => 'research', 'placeholder' => 'Last name OR phone number' ]) ?>
-
-
-
-        <?= $this->Form->button('next >>', ['type' => 'submit']); ?>
-      <?= $this->Form->end(); ?>
-
-      <?=  $this->Html->link(
-          'New customer',
-          ['controller' => 'Customers', 'action' => 'new-customer'],
-          ['class' => 'button']
-      ); ?>
-
+    <div class="col" >
+      <h4>Search customer</h4>
+        <p>
+        <?= $this->Form->control('research', ['id' => 'research',
+                                              'placeholder' => 'Name, surname or phone',
+                                              'label' => false,
+                                              'class' => "form-control form-control-lg" ]) ?>
+      </p>
       <div id="listeDiv"></div>
 
-      <script>
+
+
+<script>
       $(function () {
           $("#research").bind('input', function () {
-              console.log($("#research").val());
               $.ajax({
                   url: "<?php echo Router::url(array('controller' => 'Customers', 'action' => 'liste')); ?>",
                   data: {
@@ -41,13 +47,14 @@ use Cake\Routing\Router;
                   type: 'post'
               })
               .done(function(html) {
-                  $("#listeDiv").html(html);
+                $("#listeDiv").html(html);
               })
               .fail(function() {
                 alert( "error" );
               });
           });
       })
+
 </script>
 
 

@@ -144,8 +144,22 @@ class CustomersController extends AppController
      */
     public function newCustomer()
     {
+        $this->viewBuilder()->layout('public');
+
+        $customer = $this->Customers->newEntity();
+
         if ($this->request->is('post')) {
-            $this->redirect(['controller' => 'Cares', 'action' => 'new-care']);
+            $customer = $this->Customers->patchEntity($customer, $this->request->getData());
+            if ($this->Customers->save($customer)) {
+
+                $this->Flash->success(__('The customer has been saved.'));
+
+                return $this->redirect(['controller' => 'Cares', 'action' => 'new-care', $customer->id]);
+            }
+            $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }
+
+        $this->set(compact('customer'));
+
     }
 }

@@ -1,0 +1,50 @@
+msgid "Search customer"
+msgstr "Translation"
+
+msgid "Name, surname or phone"
+msgstr "Translation"
+
+msgid "Last name"
+msgstr "Translation"
+
+msgid "First name"
+msgstr "Translation"
+
+msgid "Phone"
+msgstr "Translation"
+
+msgid "Email"
+msgstr "Translation"
+
+msgid "Date of birth"
+msgstr "Translation"
+
+msgid "Year"
+msgstr "Translation"
+
+msgid "Month"
+msgstr "Translation"
+
+msgid "Day"
+msgstr "Translation"
+
+msgid "Choose"
+msgstr "Translation"
+
+msgid "Submit"
+msgstr "Translation"
+
+msgid "Add new customer"
+msgstr "Translation"
+
+msgid "Welcome to Nature"
+msgstr "Translation"
+
+msgid "Get 15% off on your treatment for registration"
+msgstr "Translation"
+
+msgid "The customer has been saved."
+msgstr "Translation"
+
+msgid "The customer could not be saved. Please, try again."
+msgstr "Translation"

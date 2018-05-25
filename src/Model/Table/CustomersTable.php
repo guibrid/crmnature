@@ -81,7 +81,7 @@ class CustomersTable extends Table
             ->notEmpty('phone');
 
         $validator
-            ->dateTime('date_of_birth')
+            ->date('date_of_birth')
             ->requirePresence('date_of_birth', 'create')
             ->notEmpty('date_of_birth');
 

@@ -1,0 +1,53 @@
+##################################
+# Search page
+##################################
+msgid "Search customer"
+msgstr "Rechercher un client"
+
+msgid "Name, surname or phone"
+msgstr "Nom, prénom ou téléphone"
+
+msgid "Last name"
+msgstr "Nom"
+
+msgid "First name"
+msgstr "Prénom"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Date of birth"
+msgstr "Date de naissance"
+
+msgid "Year"
+msgstr "Année"
+
+msgid "Month"
+msgstr "Mois"
+
+msgid "Day"
+msgstr "Jour"
+
+msgid "Choose"
+msgstr "Choisir"
+
+msgid "Submit"
+msgstr "Enregistrer"
+
+msgid "Add new customer"
+msgstr "Ajouter nouveau client"
+
+msgid "Welcome to Nature"
+msgstr "Bienvenu à Nature"
+
+msgid "Get 15% off on your treatment for registration"
+msgstr "Bénéficiez de 15% de réduction pour votre inscription"
+
+msgid "The customer has been saved."
+msgstr "Vous êtes bien enregistrés"
+
+msgid "The customer could not be saved. Please, try again."
+msgstr "Enregistrement imposible. Veuillez essayer à nouveau."

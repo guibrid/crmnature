@@ -1,3 +1,35 @@
+/************************************
+Général settings
+************************************/
+body {
+  text-align: center;
+}
 #logo {
   margin: 15px;
+}
+
+/************************************
+Search page
+************************************/
+#research {
+  width: 100%;
+}
+
+table.research {
+  text-align: left;
+}
+table.research td.valid {
+  text-align: right;
+}
+
+.date-input-year, .date-input-day, .date-input-month{
+  display: inline-block;
+}
+
+.date-input-year, .date-input-month, .date-input-day {
+  width: 15%;
+}
+
+.date-label {
+  font-size: 20px;
 }

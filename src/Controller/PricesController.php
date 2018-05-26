@@ -111,4 +111,34 @@ class PricesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+
+
+    public function liste()
+{
+
+    // Si c'est une requête AJAX
+    if($this->request->is('ajax')) {
+        // Force le controller à rendre une réponse JSON.
+        $this->RequestHandler->renderAs($this, 'json');
+        // Définit le type de réponse de la requete AJAX
+        $this->response->type('application/json');
+        // Find pour récupérer les pays de la bonne région
+        //$response = $this->Countries->find('all')->where(['id'=>$idCountry])->contain(['Regions']);
+        $treatment_id = $this->request->data['treatment_id'];
+        $duration_id = $this->request->data['duration_id'];
+        $response = $this->Prices->find('list')
+                                   ->where(['treatment_id =' => $treatment_id,
+                                            'duration_id =' => $duration_id]);
+        // Chargement du layout AJAX
+        $this->viewBuilder()->layout('ajax');
+        // Créer un contexte countries à renvoyer
+        $this->set('price',$response);
+        // Généreration des vues de données
+        $this->set('_serialize', ['price']);
+
+    } else {
+      throw new NotFoundException(__('Article not found'));
+    }
+}
 }

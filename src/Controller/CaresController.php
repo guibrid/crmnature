@@ -126,12 +126,40 @@ class CaresController extends AppController
      */
     public function newCare()
     {
-
+        $this->viewBuilder()->layout('public');
+        $care = $this->Cares->newEntity();
         if ($this->request->is('post')) {
-
-                return $this->redirect(['action' => 'index']);
-
+          //return $this->setAction('careDuration'); //redirige vers une methode du même controler
+          $session = $this->request->session();
+          $session->write('customer_id',$this->request->data['customer_id']);//Write
+          $session->write('treatment_id',$this->request->data['treatment_id']);//Write
+          return $this->redirect(['action' => 'careDuration']);
         }
+        $treatments = $this->Cares->Treatments->find('list', ['limit' => 200]);
+        $this->set(compact('care', 'treatments'));
 
+    }
+
+    public function careDuration()
+    {
+      $this->viewBuilder()->layout('public');
+      $session = $this->request->session();
+      $care = $this->Cares->newEntity();
+      if ($this->request->is('post')) {
+
+          $care = $this->Cares->patchEntity($care, $this->request->getData());
+          if ($this->Cares->save($care)) {
+              $this->Flash->success(__('The care has been saved.'));
+
+              return $this->redirect(['action' => 'index']);
+          }
+          $this->Flash->error(__('The care could not be saved. Please, try again.'));
+      }
+
+      $durations = $this->Cares->Durations->find('list')->where(['treatment_id =' => $session->read('treatment_id')]);
+      //$prices = $this->Cares->Prices->find('list');
+      $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
+      $this->set(compact('care', 'durations', 'prices', 'payments'));
+      $this->set(compact('care'));
     }
 }

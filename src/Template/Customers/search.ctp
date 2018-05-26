@@ -11,11 +11,11 @@
                                               'label' => false,
                                               'class' => "form-control form-control-lg" ]) ?>
       </p>
-<div id="loading"><?= $this->Html->image('ajax-loader.gif',["alt" => "Loading..."]) ?></div>
+<div id="loading" style="height:30px;"><?= $this->Html->image('ajax-loader.gif',["alt" => "Loading...", "id" => "loading-spinning"]) ?></div>
       <div id="listeDiv"></div>
 
       <script>
-      var $loading = $('#loading').hide();
+      var $loading = $('#loading-spinning').hide();
       $(document)
          .ajaxStart(function () {
             //ajax request went so show the loading image

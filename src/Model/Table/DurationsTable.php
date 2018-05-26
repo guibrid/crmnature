@@ -37,7 +37,7 @@ class DurationsTable extends Table
         parent::initialize($config);
 
         $this->setTable('durations');
-        $this->setDisplayField('id');
+        $this->setDisplayField('value');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -52,6 +52,7 @@ class DurationsTable extends Table
         $this->hasMany('Prices', [
             'foreignKey' => 'duration_id'
         ]);
+
     }
 
     /**

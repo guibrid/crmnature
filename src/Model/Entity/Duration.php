@@ -37,4 +37,10 @@ class Duration extends Entity
         'cares' => true,
         'prices' => true
     ];
+
+    /* Create virtualfield and concat string for display */
+    protected $_virtual = ['value_minutes'];
+    protected function _getValueMinutes() {
+        return $this->_properties['value'] . ' minutes';
+    }
 }

@@ -39,4 +39,10 @@ class Price extends Entity
         'duration' => true,
         'cares' => true
     ];
+
+    /* Create virtualfield and concat string for display */
+    protected $_virtual = ['value_price'];
+    protected function _getValuePrice() {
+        return $this->_properties['value'] . ' THB';
+    }
 }

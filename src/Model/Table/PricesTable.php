@@ -37,7 +37,7 @@ class PricesTable extends Table
         parent::initialize($config);
 
         $this->setTable('prices');
-        $this->setDisplayField('id');
+        $this->setDisplayField('value');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

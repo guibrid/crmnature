@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\ORM\TableRegistry;
 /**
  * Cares Controller
  *
@@ -133,6 +133,9 @@ class CaresController extends AppController
           $session = $this->request->session();
           $session->write('customer_id',$this->request->data['customer_id']);//Write
           $session->write('treatment_id',$this->request->data['treatment_id']);//Write
+          //Rechercher dans le nom du treatment choisit
+          $users = TableRegistry::get('Treatments');
+          $session->write('treatment_title', $users->get($this->request->data['treatment_id'])->title);//Write
           return $this->redirect(['action' => 'careDuration']);
         }
         $treatments = $this->Cares->Treatments->find('list', ['limit' => 200]);
@@ -159,8 +162,10 @@ class CaresController extends AppController
       $prices = $this->Cares->Prices->find('all')
                       ->where(['treatment_id =' => $session->read('treatment_id')])
                       ->contain(['Durations']);
+      $treatment = $this->Cares->Treatments->find('all')
+                      ->where(['treatment_id =' => $session->read('treatment_id')]);
 
       $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
-      $this->set(compact('care', 'prices', 'payments'));
+      $this->set(compact('care', 'prices', 'treatment', 'payments'));
     }
 }

@@ -10,7 +10,7 @@
 
   <div class="row align-items-center">
     <div class="col" >
-    <h1><?= __("Your treatment today") ?></h1>
+    <h1><?= __("Your treatment today").' : '.$session->read('treatment_title') ?></h1>
     <?= $this->Form->create($care) ?>
     <fieldset>
         <legend><?= __('Choose duration') ?></legend>

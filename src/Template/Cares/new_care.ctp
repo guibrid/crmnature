@@ -13,10 +13,18 @@
     <fieldset>
         <legend><?= __('Choose your treatment') ?></legend>
         <?php
+        $this->Form->setTemplates([
+    'radioFormGroup' => '<div class="radio">{{label}}{{input}}</div>'
+    ]);
         //Recuperer le parameter passé customer_id passé dans l'URL
         $customer_id =  $this->request->getParam('pass');
         echo $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $customer_id[0]]);
-        echo $this->Form->radio('treatment_id',  $treatments);
+        echo $this->Form->control('treatment_id',['type' => 'radio',
+                                                  'options' => $treatments,
+                                                  'templates' => [
+          'nestingLabel' => '{{hidden}}<label{{attrs}}>{{text}}</label>{{input}}',
+          'radioWrapper' => '<div class="radio">{{label}}</div>'
+      ]]);
 
         ?>
     </fieldset>

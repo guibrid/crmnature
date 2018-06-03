@@ -149,7 +149,7 @@ class CustomersController extends AppController
         $customer = $this->Customers->newEntity();
 
         if ($this->request->is('post')) {
-            $customer = $this->Customers->patchEntity($customer, $this->request->getData());
+            $customer = $this->Customers->patchEntity($customer, $this->request->getData(),['validate' => 'Customer']);
             if ($this->Customers->save($customer)) {
 
                 $this->Flash->success(__('The customer has been saved.'));

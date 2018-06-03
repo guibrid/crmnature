@@ -138,7 +138,8 @@ class CaresController extends AppController
           $session->write('treatment_title', $users->get($this->request->data['treatment_id'])->title);//Write
           return $this->redirect(['action' => 'careDuration']);
         }
-        $treatments = $this->Cares->Treatments->find('list', ['limit' => 200]);
+        $treatments = $this->Cares->Treatments->find('list', ['limit' => 200,
+      'order' => ['Treatments.Title' => 'ASC']]);
         $this->set(compact('care', 'treatments'));
 
     }

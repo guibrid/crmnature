@@ -33,3 +33,23 @@ table.research td.valid {
 .date-label {
   font-size: 20px;
 }
+
+/************************************
+Treatment page
+************************************/
+div.treatment {
+  width: 40%;
+  display: inline-block;
+  border: 1px solid #295705;
+  background-color: #cbe6b5;
+  margin: 3px;
+}
+div.treatment label {
+  width: 100%;
+  display:block;
+  margin: 0;
+  padding: 8px;
+  font-size: 13px;
+  color: #295705;
+  font-weight: bold;
+}

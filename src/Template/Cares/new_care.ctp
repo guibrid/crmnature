@@ -10,25 +10,25 @@
     <div class="col" >
     <h1><?= __("Your treatment today") ?></h1>
     <?= $this->Form->create($care) ?>
-    <fieldset>
+    <div class="form-group">
         <legend><?= __('Choose your treatment') ?></legend>
         <?php
         $this->Form->setTemplates([
-    'radioFormGroup' => '<div class="radio">{{label}}{{input}}</div>'
+          'radio' => '<input type="radio" name="{{name}}" value="{{value}}" onclick="this.form.submit();" {{attrs}}>',
+          'nestingLabel' => '{{hidden}}<label{{attrs}}>{{input}}<br />{{text}}</label>',
+          'radioWrapper' => '<div class="treatment">{{label}}</div>'
     ]);
         //Recuperer le parameter passé customer_id passé dans l'URL
         $customer_id =  $this->request->getParam('pass');
         echo $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $customer_id[0]]);
-        echo $this->Form->control('treatment_id',['type' => 'radio',
-                                                  'options' => $treatments,
-                                                  'templates' => [
-          'nestingLabel' => '{{hidden}}<label{{attrs}}>{{text}}</label>{{input}}',
-          'radioWrapper' => '<div class="radio">{{label}}</div>'
-      ]]);
 
+         echo $this->Form->control('treatment_id',['type' => 'radio',
+                                                  'options' => $treatments,
+                                                  'label' => false]);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Select your duration')) ?>
+
+
+      </div>
     <?= $this->Form->end() ?>
     </div>
   </div>

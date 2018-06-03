@@ -156,10 +156,11 @@ class CaresController extends AppController
           $this->Flash->error(__('The care could not be saved. Please, try again.'));
       }
 
-      $durations = $this->Cares->Durations->find('list')->where(['treatment_id =' => $session->read('treatment_id')]);
-      //$prices = $this->Cares->Prices->find('list');
+      $prices = $this->Cares->Prices->find('all')
+                      ->where(['treatment_id =' => $session->read('treatment_id')])
+                      ->contain(['Durations']);
+
       $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
-      $this->set(compact('care', 'durations', 'prices', 'payments'));
-      $this->set(compact('care'));
+      $this->set(compact('care', 'prices', 'payments'));
     }
 }

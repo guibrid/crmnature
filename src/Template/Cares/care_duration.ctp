@@ -15,9 +15,11 @@
     <fieldset>
         <legend><?= __('Choose duration') ?></legend>
         <?php
-        //Recuperer le parameter passé customer_id passé dans l'URL
-        //echo $session->read('customer_id');
-
+        //On récupère les valeurs de durée en lien avec le traitement choisi
+        $durations = [];
+        foreach($prices as $price){
+          $durations[$price->duration->id] = $price->duration->value;
+        }
 
         echo $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $session->read('customer_id')]);
         echo $this->Form->control('treatment_id', ['type' => 'hidden', 'value' => $session->read('treatment_id')]);
@@ -29,7 +31,7 @@
 
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Select your duration')) ?>
+    <?= $this->Form->button(__('Save')) ?>
     <?= $this->Form->end() ?>
     </div>
   </div>

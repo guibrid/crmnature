@@ -8,7 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $value
- * @property int $treatment_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -30,17 +29,10 @@ class Duration extends Entity
      */
     protected $_accessible = [
         'value' => true,
-        'treatment_id' => true,
         'created' => true,
         'modified' => true,
         'treatment' => true,
         'cares' => true,
         'prices' => true
     ];
-
-    /* Create virtualfield and concat string for display */
-    protected $_virtual = ['value_minutes'];
-    protected function _getValueMinutes() {
-        return $this->_properties['value'] . ' minutes';
-    }
 }

@@ -19,12 +19,8 @@ class DurationsFixture extends TestFixture
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'value' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'treatment_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        '_indexes' => [
-            'fk_treatment_id' => ['type' => 'index', 'columns' => ['treatment_id'], 'length' => []],
-        ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -46,9 +42,8 @@ class DurationsFixture extends TestFixture
             [
                 'id' => 1,
                 'value' => 1,
-                'treatment_id' => 1,
-                'created' => '2018-05-14 10:10:29',
-                'modified' => '2018-05-14 10:10:29'
+                'created' => '2018-06-03 07:16:45',
+                'modified' => '2018-06-03 07:16:45'
             ],
         ];
         parent::init();

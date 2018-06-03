@@ -112,10 +112,8 @@ class PricesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-
-
     public function liste()
-{
+    {
 
     // Si c'est une requête AJAX
     if($this->request->is('ajax')) {
@@ -140,5 +138,5 @@ class PricesController extends AppController
     } else {
       throw new NotFoundException(__('Article not found'));
     }
-}
+    }
 }

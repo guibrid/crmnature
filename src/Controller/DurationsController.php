@@ -20,9 +20,6 @@ class DurationsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Treatments']
-        ];
         $durations = $this->paginate($this->Durations);
 
         $this->set(compact('durations'));
@@ -38,7 +35,7 @@ class DurationsController extends AppController
     public function view($id = null)
     {
         $duration = $this->Durations->get($id, [
-            'contain' => ['Treatments', 'Cares', 'Prices']
+            'contain' => []
         ]);
 
         $this->set('duration', $duration);
@@ -61,8 +58,7 @@ class DurationsController extends AppController
             }
             $this->Flash->error(__('The duration could not be saved. Please, try again.'));
         }
-        $treatments = $this->Durations->Treatments->find('list', ['limit' => 200]);
-        $this->set(compact('duration', 'treatments'));
+        $this->set(compact('duration'));
     }
 
     /**
@@ -86,8 +82,7 @@ class DurationsController extends AppController
             }
             $this->Flash->error(__('The duration could not be saved. Please, try again.'));
         }
-        $treatments = $this->Durations->Treatments->find('list', ['limit' => 200]);
-        $this->set(compact('duration', 'treatments'));
+        $this->set(compact('duration'));
     }
 
     /**

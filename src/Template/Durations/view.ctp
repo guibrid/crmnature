@@ -20,12 +20,8 @@
     </ul>
 </nav>
 <div class="durations view large-9 medium-8 columns content">
-    <h3><?= h($duration->id) ?></h3>
+    <h3><?= h($duration->value) ?></h3>
     <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Treatment') ?></th>
-            <td><?= $duration->has('treatment') ? $this->Html->link($duration->treatment->title, ['controller' => 'Treatments', 'action' => 'view', $duration->treatment->id]) : '' ?></td>
-        </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($duration->id) ?></td>

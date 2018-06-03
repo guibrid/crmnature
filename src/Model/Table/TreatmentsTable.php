@@ -45,9 +45,6 @@ class TreatmentsTable extends Table
         $this->hasMany('Cares', [
             'foreignKey' => 'treatment_id'
         ]);
-        $this->hasMany('Durations', [
-            'foreignKey' => 'treatment_id'
-        ]);
         $this->hasMany('Prices', [
             'foreignKey' => 'treatment_id'
         ]);

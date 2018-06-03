@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Durations Model
  *
- * @property \App\Model\Table\TreatmentsTable|\Cake\ORM\Association\BelongsTo $Treatments
  * @property \App\Model\Table\CaresTable|\Cake\ORM\Association\HasMany $Cares
  * @property \App\Model\Table\PricesTable|\Cake\ORM\Association\HasMany $Prices
  *
@@ -42,17 +41,12 @@ class DurationsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Treatments', [
-            'foreignKey' => 'treatment_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->hasMany('Cares', [
+        /*$this->hasMany('Cares', [
             'foreignKey' => 'duration_id'
-        ]);
+        ]);*/
         $this->hasMany('Prices', [
             'foreignKey' => 'duration_id'
         ]);
-
     }
 
     /**
@@ -73,19 +67,5 @@ class DurationsTable extends Table
             ->notEmpty('value');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['treatment_id'], 'Treatments'));
-
-        return $rules;
     }
 }

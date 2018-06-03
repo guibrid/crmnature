@@ -28,7 +28,6 @@
         <legend><?= __('Edit Duration') ?></legend>
         <?php
             echo $this->Form->control('value');
-            echo $this->Form->control('treatment_id', ['options' => $treatments]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

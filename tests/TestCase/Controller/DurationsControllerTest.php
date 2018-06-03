@@ -16,10 +16,7 @@ class DurationsControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.durations',
-        'app.treatments',
-        'app.cares',
-        'app.prices'
+        'app.durations'
     ];
 
     /**

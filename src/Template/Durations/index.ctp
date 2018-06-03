@@ -23,7 +23,6 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('value') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('treatment_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -34,7 +33,6 @@
             <tr>
                 <td><?= $this->Number->format($duration->id) ?></td>
                 <td><?= $this->Number->format($duration->value) ?></td>
-                <td><?= $duration->has('treatment') ? $this->Html->link($duration->treatment->title, ['controller' => 'Treatments', 'action' => 'view', $duration->treatment->id]) : '' ?></td>
                 <td><?= h($duration->created) ?></td>
                 <td><?= h($duration->modified) ?></td>
                 <td class="actions">

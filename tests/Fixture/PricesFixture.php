@@ -50,8 +50,8 @@ class PricesFixture extends TestFixture
                 'value' => 1,
                 'treatment_id' => 1,
                 'duration_id' => 1,
-                'created' => '2018-05-14 10:10:38',
-                'modified' => '2018-05-14 10:10:38'
+                'created' => '2018-06-03 07:46:36',
+                'modified' => '2018-06-03 07:46:36'
             ],
         ];
         parent::init();

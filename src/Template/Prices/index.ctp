@@ -36,7 +36,7 @@
                 <td><?= $this->Number->format($price->id) ?></td>
                 <td><?= $this->Number->format($price->value) ?></td>
                 <td><?= $price->has('treatment') ? $this->Html->link($price->treatment->title, ['controller' => 'Treatments', 'action' => 'view', $price->treatment->id]) : '' ?></td>
-                <td><?= $price->has('duration') ? $this->Html->link($price->duration->id, ['controller' => 'Durations', 'action' => 'view', $price->duration->id]) : '' ?></td>
+                <td><?= $price->has('duration') ? $this->Html->link($price->duration->value, ['controller' => 'Durations', 'action' => 'view', $price->duration->id]) : '' ?></td>
                 <td><?= h($price->created) ?></td>
                 <td><?= h($price->modified) ?></td>
                 <td class="actions">

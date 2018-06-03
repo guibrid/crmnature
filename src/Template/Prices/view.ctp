@@ -20,7 +20,7 @@
     </ul>
 </nav>
 <div class="prices view large-9 medium-8 columns content">
-    <h3><?= h($price->id) ?></h3>
+    <h3><?= h($price->value) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Treatment') ?></th>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Duration') ?></th>
-            <td><?= $price->has('duration') ? $this->Html->link($price->duration->id, ['controller' => 'Durations', 'action' => 'view', $price->duration->id]) : '' ?></td>
+            <td><?= $price->has('duration') ? $this->Html->link($price->duration->value, ['controller' => 'Durations', 'action' => 'view', $price->duration->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

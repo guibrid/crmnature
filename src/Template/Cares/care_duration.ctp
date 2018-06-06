@@ -10,28 +10,54 @@
 
   <div class="row align-items-center">
     <div class="col" >
-    <h1><?= __("Your treatment today").' : '.$session->read('treatment_title') ?></h1>
+      <h3><?= __("Your treatment").'<br />'.$session->read('treatment_title') ?></h3>
+      <br />
     <?= $this->Form->create($care) ?>
-    <fieldset>
-        <legend><?= __('Choose duration') ?></legend>
+
         <?php
         //On récupère les valeurs de durée en lien avec le traitement choisi
         $durations = [];
         foreach($prices as $price){
           $durations[$price->duration->id] = $price->duration->value;
         }
-
-        echo $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $session->read('customer_id')]);
-        echo $this->Form->control('treatment_id', ['type' => 'hidden', 'value' => $session->read('treatment_id')]);
-        echo $this->Form->control('duration_id', ['empty'=>'Select', 'options' => $durations]);
-        echo $this->Form->control('price_value', ['type' => 'text','disabled' => true]);
-        echo $this->Form->control('price_id', ['type' => 'hidden']);
-        echo $this->Form->control('payment_id', ['options' => $payments]);
-
-
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Save')) ?>
+        <?= $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $session->read('customer_id')]) ?>
+        <?= $this->Form->control('treatment_id', ['type' => 'hidden', 'value' => $session->read('treatment_id')]) ?>
+        <div class="form-group">
+        <?= $this->Form->control('duration_id', ['empty'=> __('Select duration'),
+                                                 'options' => $durations,
+                                                 'class' => 'form-control form-control-lg',
+                                                 'label' => false]) ?>
+      </div>
+
+      <div class="form-group">
+      <div class="input-group">
+
+        <?= $this->Form->control('price_value', ['type' => 'text',
+                                                 'disabled' => true,
+                                                 'class' => 'form-control form-control-lg',
+                                                 'placeholder' => __('Price'),
+                                                 'label' => false]) ?>
+                                                 <div class="input-group-prepend">
+                                                   <div class="input-group-text">THB</div>
+                                                 </div>
+                                               </div>
+                                             </div>
+
+<hr />
+
+        <?=  $this->Form->control('price_id', ['type' => 'hidden']) ?>
+        <div class="form-group">
+        <?=  $this->Form->control('payment_id', ['options' => $payments,
+                                  'class' => 'form-control form-control-lg',
+                                  'empty' => __('Type of payment'),
+                                  'label' => false]) ?>
+      </div>
+
+
+
+<br />
+    <?= $this->Form->button( __('Save the treatment'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
     </div>
   </div>

@@ -155,7 +155,7 @@ class CaresController extends AppController
           if ($this->Cares->save($care)) {
               $this->Flash->success(__('The care has been saved.'));
 
-              return $this->redirect(['action' => 'index']);
+              return $this->redirect(['controller' => 'Customers', 'action' => 'search']);
           }
           $this->Flash->error(__('The care could not be saved. Please, try again.'));
       }

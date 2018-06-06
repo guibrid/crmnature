@@ -8,7 +8,6 @@
 
   <div class="row align-items-center">
     <div class="col" >
-    <h1><?= __("Your treatment today") ?></h1>
     <?= $this->Form->create($care) ?>
     <div class="form-group">
         <legend><?= __('Choose your treatment') ?></legend>

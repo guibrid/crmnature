@@ -10,6 +10,9 @@ msgstr "Translation"
 msgid "First name"
 msgstr "Translation"
 
+msgid "Name"
+msgstr "Translation"
+
 msgid "Phone"
 msgstr "Translation"
 
@@ -34,7 +37,10 @@ msgstr "Translation"
 msgid "Submit"
 msgstr "Translation"
 
-msgid "Add new customer"
+msgid "Register customer"
+msgstr "Translation"
+
+msgid "Non registered customer"
 msgstr "Translation"
 
 msgid "Welcome to Nature"

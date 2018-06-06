@@ -13,8 +13,11 @@ msgstr "Nom"
 msgid "First name"
 msgstr "Prénom"
 
+msgid "Name"
+msgstr "Nom"
+
 msgid "Phone"
-msgstr "Téléphone"
+msgstr "Tel."
 
 msgid "Email"
 msgstr "Email"
@@ -37,8 +40,11 @@ msgstr "Choisir"
 msgid "Submit"
 msgstr "Enregistrer"
 
-msgid "Add new customer"
+msgid "Register customer"
 msgstr "Ajouter nouveau client"
+
+msgid "Non registered customer"
+msgstr "Client non enregistré"
 
 msgid "Welcome to Nature"
 msgstr "Bienvenu à Nature"

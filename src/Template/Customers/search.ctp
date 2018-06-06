@@ -14,6 +14,21 @@
 <div id="loading" style="height:30px;"><?= $this->Html->image('ajax-loader.gif',["alt" => "Loading...", "id" => "loading-spinning"]) ?></div>
       <div id="listeDiv"></div>
 
+      <p>
+        <?=  $this->Html->link(
+            __('Register customer'),
+            ['controller' => 'Customers', 'action' => 'new-customer'],
+            ['class' => 'btn btn-primary']
+        ); ?>
+      </p>
+      <p>
+        <?=  $this->Html->link(
+            __('Non registered customer'),
+            ['controller' => 'Cares', 'action' => 'new-care', '1'],
+            ['class' => 'btn btn-primary']
+        ); ?>
+      </p>
+
       <script>
       var $loading = $('#loading-spinning').hide();
       $(document)

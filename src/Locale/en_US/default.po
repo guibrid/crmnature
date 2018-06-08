@@ -46,9 +46,6 @@ msgstr "Translation"
 msgid "Welcome to Nature"
 msgstr "Translation"
 
-msgid "Get 15% off on your treatment for registration"
-msgstr "Translation"
-
 msgid "The customer has been saved."
 msgstr "Translation"
 

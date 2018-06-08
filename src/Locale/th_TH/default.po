@@ -49,9 +49,6 @@ msgstr "ลูกค้าไม่ลงทะเบียน"
 msgid "Welcome to Nature"
 msgstr "Nature ยินดีต้อนรับ"
 
-msgid "Get 15% off on your treatment for registration"
-msgstr "Bénéficiez de 15% de réduction pour votre inscription"
-
 msgid "The customer has been saved."
 msgstr "ลูกค้าลงทะเบียนแล้ว"
 

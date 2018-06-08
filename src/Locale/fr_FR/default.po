@@ -49,9 +49,6 @@ msgstr "Client non enregistré"
 msgid "Welcome to Nature"
 msgstr "Bienvenu à Nature"
 
-msgid "Get 15% off on your treatment for registration"
-msgstr "Bénéficiez de 15% de réduction pour votre inscription"
-
 msgid "The customer has been saved."
 msgstr "Vous êtes bien enregistrés"
 

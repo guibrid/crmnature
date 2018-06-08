@@ -8,7 +8,6 @@
       <h1><?= __('Welcome to Nature') ?></h1>
       <?= $this->Form->create($customer) ?>
       <fieldset>
-          <legend><?= __('Get 15% off on your treatment for registration') ?></legend>
           <p><?= $this->Form->control('first_name', ['id' => 'first_name',
                                                     'placeholder' => __('First name'),
                                                     'label' => false,

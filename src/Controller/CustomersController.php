@@ -116,7 +116,7 @@ class CustomersController extends AppController
     public function search($id = null)
     {
 
-      $this->viewBuilder()->layout('public');
+      $this->viewBuilder()->setLayout('public');
 
     }
 
@@ -133,7 +133,8 @@ class CustomersController extends AppController
                                        ->where(['OR' => [
                                                     ['last_name LIKE' => '%'.$research.'%'],
                                                     ['first_name LIKE' => '%'.$research.'%'],
-                                                    ['phone LIKE' => '%'.$research.'%'],]])
+                                                    ['phone LIKE' => '%'.$research.'%'],],
+                                                    ['id NOT IN' => '1']])
                                        ->limit(5);
           $this->set('customers', $customers);
         }
@@ -144,7 +145,7 @@ class CustomersController extends AppController
      */
     public function newCustomer()
     {
-        $this->viewBuilder()->layout('public');
+        $this->viewBuilder()->setLayout('public');
 
         $customer = $this->Customers->newEntity();
 

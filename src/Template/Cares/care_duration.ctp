@@ -24,27 +24,27 @@
         <?= $this->Form->control('customer_id', ['type' => 'hidden', 'value' => $session->read('customer_id')]) ?>
         <?= $this->Form->control('treatment_id', ['type' => 'hidden', 'value' => $session->read('treatment_id')]) ?>
         <div class="form-group">
-        <?= $this->Form->control('duration_id', ['empty'=> __('Select duration'),
-                                                 'options' => $durations,
-                                                 'class' => 'form-control form-control-lg',
-                                                 'label' => false]) ?>
-      </div>
+              <?= $this->Form->control('duration_id', ['empty'=> __('Select duration'),
+                                                       'options' => $durations,
+                                                       'class' => 'form-control form-control-lg',
+                                                       'label' => false]) ?>
+       </div>
 
-      <div class="form-group">
-      <div class="input-group">
+       <div class="form-group">
+            <div class="input-group">
 
         <?= $this->Form->control('price_value', ['type' => 'text',
                                                  'disabled' => true,
                                                  'class' => 'form-control form-control-lg',
                                                  'placeholder' => __('Price'),
                                                  'label' => false]) ?>
-                                                 <div class="input-group-prepend">
-                                                   <div class="input-group-text">THB</div>
-                                                 </div>
-                                               </div>
-                                             </div>
+           <div class="input-group-prepend">
+             <div class="input-group-text">THB</div>
+           </div>
+         </div>
+       </div>
 
-<hr />
+        <hr />
 
         <?=  $this->Form->control('price_id', ['type' => 'hidden']) ?>
         <div class="form-group">

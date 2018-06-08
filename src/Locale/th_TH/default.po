@@ -1,0 +1,59 @@
+##################################
+# Search page
+##################################
+msgid "Search customer"
+msgstr "ค้นหา"
+
+msgid "Name, surname or phone"
+msgstr "ชื่อ,นามสกุล,เบอร์โทร"
+
+msgid "Last name"
+msgstr "นามสกุล"
+
+msgid "First name"
+msgstr "ชื่อจริง"
+
+msgid "Name"
+msgstr "ชื่อ"
+
+msgid "Phone"
+msgstr "เบอร์โทร"
+
+msgid "Email"
+msgstr "อีเมล"
+
+msgid "Date of birth"
+msgstr "วัน เดือน ปี เกิด"
+
+msgid "Year"
+msgstr "ปี"
+
+msgid "Month"
+msgstr "เดือน"
+
+msgid "Day"
+msgstr "วัน"
+
+msgid "Choose"
+msgstr "เลือก"
+
+msgid "Submit"
+msgstr "ส่ง"
+
+msgid "Register customer"
+msgstr "เพิ่มลูกค้าใหม่"
+
+msgid "Non registered customer"
+msgstr "ลูกค้าไม่ลงทะเบียน"
+
+msgid "Welcome to Nature"
+msgstr "Nature ยินดีต้อนรับ"
+
+msgid "Get 15% off on your treatment for registration"
+msgstr "Bénéficiez de 15% de réduction pour votre inscription"
+
+msgid "The customer has been saved."
+msgstr "ลูกค้าลงทะเบียนแล้ว"
+
+msgid "The customer could not be saved. Please, try again."
+msgstr "ลงทะเบียนไม่ได้ ลองอีกครั้ง"

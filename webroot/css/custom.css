@@ -15,8 +15,8 @@ Search page
   width: 100%;
 }
 
-#listeDiv {
-
+.phone-number {
+  font-size: 13px;
 }
 
 table.research {

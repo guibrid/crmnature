@@ -5,7 +5,7 @@
     <?php foreach ($customers as $customer):; ?>
         <tr>
             <td><?= $customer->last_name; ?> <?= $customer->first_name; ?><br />
-                <i class="fas fa-phone"></i> <?= $customer->phone; ?>
+                <span class="phone-number"><i class="fas fa-phone"></i> <?= $customer->phone; ?></span>
             </td>
             <td class="align-middle" style="text-align:right"><?=  $this->Html->link(
                 __('Choose'),

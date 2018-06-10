@@ -45,6 +45,25 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Customers',
+                'action' => 'search'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                      'username' => 'email',
+                      'password' => 'password'
+                    ]
+                ]
+            ]
+        ]);
+
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -52,5 +71,30 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        // Bloquer l'accès à toutes les pages sauf login method
+        $this->Auth->allow(['login']);
+    }
+
+    public function login()
+    {
+        $this->viewBuilder()->setLayout('public');
+
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('Invalid username or password, try again'));
+        }
+    }
+
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
 }

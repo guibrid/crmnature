@@ -155,7 +155,7 @@ class CustomersController extends AppController
 
                 $this->Flash->success(__('The customer has been saved.'));
 
-                return $this->redirect(['controller' => 'Cares', 'action' => 'new-care', $customer->id]);
+                return $this->redirect(['action' => 'search']);
             }
             $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }

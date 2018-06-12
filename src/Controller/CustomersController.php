@@ -75,6 +75,8 @@ class CustomersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('public');
+
         $customer = $this->Customers->get($id, [
             'contain' => []
         ]);
@@ -83,7 +85,7 @@ class CustomersController extends AppController
             if ($this->Customers->save($customer)) {
                 $this->Flash->success(__('The customer has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'search']);
             }
             $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }
@@ -99,7 +101,7 @@ class CustomersController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['post', 'delete','get']);
         $customer = $this->Customers->get($id);
         if ($this->Customers->delete($customer)) {
             $this->Flash->success(__('The customer has been deleted.'));
@@ -157,7 +159,7 @@ class CustomersController extends AppController
                 $this->Flash->success(__('The customer has been saved.'));
 
                 return $this->redirect(['action' => 'search']);
-            } 
+            }
             $this->Flash->error(__('The customer could not be saved. Please, try again.'));
         }
 

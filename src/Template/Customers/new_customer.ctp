@@ -25,13 +25,14 @@
                                                     'label' => false,
                                                     'class' => "form-control form-control-lg" ]) ?>
                                                   <small id="emailHelp" class="form-text text-muted"><?= __('If more than one phone number write them like this 0951101333/0983456222/09123334455') ?></small></p>
-          <p>
+          <p><label><?= __('Date of birth') ?></label><br />
             <?= $this->Form->dateTime('date_of_birth',  [
                                             'monthNames' => false,
                                             'hour' => false,
                                             'minute' => false,
                                             'second' => false,
                                             'meridian' => false,
+                                            'label' => false,
                                             'year' => ['class' => 'form-control form-control-lg date-input-year'],
                                             'month' => ['class' => 'form-control form-control-lg date-input-month'],
                                             'day' => ['class' => 'form-control form-control-lg date-input-day'],

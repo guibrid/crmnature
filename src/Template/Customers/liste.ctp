@@ -7,12 +7,36 @@
             <td><?= $customer->last_name; ?> <?= $customer->first_name; ?><br />
                 <span class="phone-number"><i class="fas fa-phone"></i> <?= $customer->phone; ?></span>
             </td>
-            <td class="align-middle" style="text-align:right"><?=  $this->Html->link(
+            <td class="align-middle" style="text-align:right">
+              <?=  $this->Html->link(
                 __('Choose'),
                 ['controller' => 'Cares', 'action' => 'new-care', $customer->id],
                 ['class' => 'btn btn-primary btn-sm']
-            ); ?></td>
+                );
+              ?>
+              <?=  $this->Html->link(
+                ' <i class="fas fa-user-edit"></i> ',
+                ['controller' => 'Customers', 'action' => 'edit', $customer->id],
+                ['escape' => false, 'title' => __('Edit'), 'class' => 'btn btn-primary btn-sm']
+                );
+              ?>
+              <?=  $this->Html->link(
+                ' <i class="fas fa-times-circle"></i> ',
+                ['controller' => 'Customers', 'action' => 'delete', $customer->id],
+                ['escape' => false, 'title' => __('Delete'), 'class' => 'btn btn-danger btn-sm', 'onclick' => 'return show_alert();']
+                );
+              ?>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<script>
+function show_alert()
+{
+  var message = <?php echo __('"Do you want to delete this customer?"'); ?>;
+   if (confirm(message)) { return true; }
+   return false;
+}
+</script>

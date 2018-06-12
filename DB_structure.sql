@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 10 Juin 2018 à 08:59
+-- Généré le :  Mar 12 Juin 2018 à 08:23
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -46,10 +46,10 @@ CREATE TABLE `cares` (
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date_of_birth` datetime DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
@@ -61,6 +61,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `email`, `phone`, `date_of_birth`, `created`, `modified`) VALUES
 (1, 'Non', 'registred', NULL, NULL, NULL, '2018-05-20 11:58:28', '2018-05-20 11:58:28');
+
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,6 @@ CREATE TABLE `treatments` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 
 
 -- --------------------------------------------------------
@@ -188,46 +188,3 @@ ALTER TABLE `treatments`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `cares`
---
-ALTER TABLE `cares`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT pour la table `customers`
---
-ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT pour la table `durations`
---
-ALTER TABLE `durations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT pour la table `payments`
---
-ALTER TABLE `payments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT pour la table `prices`
---
-ALTER TABLE `prices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
---
--- AUTO_INCREMENT pour la table `treatments`
---
-ALTER TABLE `treatments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
---
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

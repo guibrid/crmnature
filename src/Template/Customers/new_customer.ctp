@@ -23,7 +23,8 @@
           <p><?= $this->Form->control('phone', ['id' => 'phone',
                                                     'placeholder' => __('Phone'),
                                                     'label' => false,
-                                                    'class' => "form-control form-control-lg" ]) ?></p>
+                                                    'class' => "form-control form-control-lg" ]) ?>
+                                                  <small id="emailHelp" class="form-text text-muted"><?= __('If more than one phone number write them like this 0951101333/0983456222/09123334455') ?></small></p>
           <p>
             <?= $this->Form->dateTime('date_of_birth',  [
                                             'monthNames' => false,

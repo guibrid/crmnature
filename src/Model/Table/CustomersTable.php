@@ -62,15 +62,17 @@ class CustomersTable extends Table
         $validator
             ->scalar('first_name')
             ->maxLength('first_name', 255)
-            ->notEmpty('first_name', __('Fist name is requiered'))
-            ->requirePresence('first_name', 'create');
+            ->allowEmpty('first_name');
+            //->notEmpty('first_name', __('Fist name is requiered'))
+            //->requirePresence('first_name', 'create');
 
 
         $validator
             ->scalar('last_name')
             ->maxLength('last_name', 255)
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name',  __('Last name is requiered'));
+            ->allowEmpty('last_name');
+            //->requirePresence('last_name', 'create')
+            //->notEmpty('last_name',  __('Last name is requiered'));
 
         $validator
             ->email('email')
@@ -80,7 +82,7 @@ class CustomersTable extends Table
 
         $validator
             ->scalar('phone')
-            ->maxLength('phone', 20)
+            ->maxLength('phone', 255)
             ->allowEmpty('phone');
 
         $validator
@@ -99,8 +101,7 @@ class CustomersTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email'], ['allowMultipleNulls' => false]));
-
+        //$rules->add($rules->isUnique(['email'], ['allowMultipleNulls' => false]));
         return $rules;
     }
 
@@ -114,7 +115,7 @@ class CustomersTable extends Table
         if ($data['phone']==='') {
           $data['phone'] = null;
         } else { // Supprimer tous les caractères non numérique du champs phone
-          $data['phone'] = preg_replace('/[^0-9]/', '', $data['phone']);
+          $data['phone'] = preg_replace('/[^0-9\/]/', '', $data['phone']);
         };
 
         if ($data['email']==='') {

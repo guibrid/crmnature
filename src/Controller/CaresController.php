@@ -167,14 +167,20 @@ class CaresController extends AppController
       $prices = $this->Cares->Prices->find('all')
                       ->where(['treatment_id =' => $session->read('treatment_id')])
                       ->contain(['Durations']);
+                      
       $treatment = $this->Cares->Treatments->find('all')
                       ->where(['treatment_id =' => $session->read('treatment_id')]);
 
       $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
+
       $memberships = $this->Cares->Memberships->find('list', [
-                                                      'keyField' => 'id',
-                                                      'valueField' => 'package.name'])
-                      ->contain(['Packages']);
+                                                     'keyField' => 'id',
+                                                     'valueField' => 'package.name'])
+                                              ->contain(['Packages']);
+      $userId = $session->read('customer_id');
+      $memberships->matching('Customers', function ($q) use ($userId) {
+                    return $q->where(['Customers.id' => $userId]);
+                });
 
       $promotions = $this->Cares->Promotions->find('list', ['limit' => 200]);
       $this->set(compact('care', 'prices', 'treatment', 'payments', 'memberships', 'promotions'));

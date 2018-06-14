@@ -67,7 +67,9 @@ class CaresController extends AppController
         $durations = $this->Cares->Durations->find('list', ['limit' => 200]);
         $prices = $this->Cares->Prices->find('list', ['limit' => 200]);
         $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
-        $this->set(compact('care', 'customers', 'treatments', 'durations', 'prices', 'payments'));
+        $memberships = $this->Cares->Memberships->find('list', ['limit' => 200]);
+        $promotions = $this->Cares->Promotions->find('list', ['limit' => 200]);
+        $this->set(compact('care', 'customers', 'treatments', 'durations', 'prices', 'payments', 'memberships', 'promotions'));
     }
 
     /**
@@ -96,7 +98,9 @@ class CaresController extends AppController
         $durations = $this->Cares->Durations->find('list', ['limit' => 200]);
         $prices = $this->Cares->Prices->find('list', ['limit' => 200]);
         $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
-        $this->set(compact('care', 'customers', 'treatments', 'durations', 'prices', 'payments'));
+        $memberships = $this->Cares->Memberships->find('list', ['limit' => 200]);
+        $promotions = $this->Cares->Promotions->find('list', ['limit' => 200]);
+        $this->set(compact('care', 'customers', 'treatments', 'durations', 'prices', 'payments', 'memberships', 'promotions'));
     }
 
     /**
@@ -167,6 +171,12 @@ class CaresController extends AppController
                       ->where(['treatment_id =' => $session->read('treatment_id')]);
 
       $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
-      $this->set(compact('care', 'prices', 'treatment', 'payments'));
+      $memberships = $this->Cares->Memberships->find('list', [
+                                                      'keyField' => 'id',
+                                                      'valueField' => 'package.name'])
+                      ->contain(['Packages']);
+
+      $promotions = $this->Cares->Promotions->find('list', ['limit' => 200]);
+      $this->set(compact('care', 'prices', 'treatment', 'payments', 'memberships', 'promotions'));
     }
 }

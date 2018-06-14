@@ -64,6 +64,14 @@ class CaresTable extends Table
             'foreignKey' => 'payment_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Memberships', [
+            'foreignKey' => 'membership_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Promotions', [
+            'foreignKey' => 'promotion_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -95,6 +103,8 @@ class CaresTable extends Table
         $rules->add($rules->existsIn(['duration_id'], 'Durations'));
         $rules->add($rules->existsIn(['price_id'], 'Prices'));
         $rules->add($rules->existsIn(['payment_id'], 'Payments'));
+        $rules->add($rules->existsIn(['membership_id'], 'Memberships'));
+        $rules->add($rules->existsIn(['promotion_id'], 'Promotions'));
 
         return $rules;
     }

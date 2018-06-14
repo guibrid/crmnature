@@ -30,6 +30,8 @@
             echo $this->Form->control('duration_id', ['options' => $durations]);
             echo $this->Form->control('price_id', ['options' => $prices]);
             echo $this->Form->control('payment_id', ['options' => $payments]);
+            echo $this->Form->control('membership_id', ['options' => $memberships]);
+            echo $this->Form->control('promotion_id', ['options' => $promotions]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

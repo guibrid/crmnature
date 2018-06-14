@@ -39,12 +39,16 @@ class Care extends Entity
         'duration_id' => true,
         'price_id' => true,
         'payment_id' => true,
+        'membership_id' => true,
+        'promotion_id' => true,
         'created' => true,
         'modified' => true,
         'customer' => true,
         'treatment' => true,
         'duration' => true,
         'price' => true,
-        'payment' => true
+        'payment' => true,
+        'membership' => true,
+        'promotion' => true,
     ];
 }

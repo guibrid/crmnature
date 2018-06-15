@@ -31,33 +31,33 @@
        </div>
 
         <div class="form-group">
-        <?=  /*$this->Form->control('payment_id', ['options' => $payments,
+        <?=  $this->Form->control('payment_id', ['options' => $payments,
                                   'class' => 'form-control form-control-lg',
                                   'empty' => __('Type of payment'),
-                                  'label' => false])*/ ?>
+                                  'label' => false]) ?>
       </div>
       <div class="form-group">
-      <?=  /*$this->Form->control('membership_id', ['options' => $memberships,
+      <?=  $this->Form->control('membership_id', ['options' => $memberships,
                                 'class' => 'form-control form-control-lg',
                                 'empty' => __('Type of membership'),
-                                'label' => false])*/ ?>
+                                'label' => false]) ?>
       </div>
       <div class="form-group">
-      <?= /* $this->Form->control('promotion_id', ['options' => $promotions,
+      <?=  $this->Form->control('promotion_id', ['options' => $promotions,
                                 'class' => 'form-control form-control-lg',
                                 'empty' => __('Type of promotion'),
-                                'label' => false])*/ ?>
+                                'label' => false]) ?>
 
       </div>
       <hr />
       <div class="form-group">
            <div class="input-group">
 
-       <?= /*$this->Form->control('price_value', ['type' => 'text',
+       <?= $this->Form->control('price_value', ['type' => 'text',
                                                 'disabled' => true,
                                                 'class' => 'form-control form-control-lg',
                                                 'placeholder' => __('Price'),
-                                                'label' => false])*/ ?>
+                                                'label' => false]) ?>
           <div class="input-group-prepend">
             <div class="input-group-text">THB</div>
           </div>
@@ -66,7 +66,7 @@
 
 
 
-       <?=  /*$this->Form->control('price_id', ['type' => 'hidden'])*/ ?>
+       <?=  $this->Form->control('price_id', ['type' => 'hidden']) ?>
 
 
 

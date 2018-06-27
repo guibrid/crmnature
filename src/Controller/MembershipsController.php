@@ -53,7 +53,10 @@ class MembershipsController extends AppController
     {
         $membership = $this->Memberships->newEntity();
         if ($this->request->is('post')) {
+
             $membership = $this->Memberships->patchEntity($membership, $this->request->getData());
+
+
             if ($this->Memberships->save($membership)) {
                 $this->Flash->success(__('The membership has been saved.'));
 
@@ -124,8 +127,11 @@ class MembershipsController extends AppController
         $this->viewBuilder()->layout('public');
         $membership = $this->Memberships->newEntity();
         if ($this->request->is('post')) {
+
             $membership = $this->Memberships->patchEntity($membership, $this->request->getData());
+
             if ($this->Memberships->save($membership)) {
+                //debug($this->set('errors', $membership->errors()));
                 $this->Flash->success(__('The membership has been saved.'));
 
                 return $this->redirect(['action' => 'index']);

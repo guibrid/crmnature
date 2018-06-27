@@ -32,7 +32,7 @@
                                                   'options' => $payments,
                                                   'empty'   => __('Select payment')])?>
         </div>
-        
+
         <div class="form-group">
           <label><?= __('Price') ?></label>
           <div class="input-group">
@@ -79,9 +79,9 @@
           <label><?= __('Expiration date') ?></label>
           <?= $this->Form->control('expiration',  [
                                           'monthNames' => false,
-                                          'hour' => false,
-                                          'minute' => false,
-                                          'second' => false,
+                                          'hour' => true,
+                                          'minute' => true,
+                                          'second' => true,
                                           'meridian' => false,
                                           'label' =>  false,
                                           'year' => ['class' => 'form-control form-control-lg date-input-year'],

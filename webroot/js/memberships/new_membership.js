@@ -9,7 +9,7 @@ $(function () {
 
       var listCustomers = new Array();
       for(key in data.customers_list) {
-        listCustomers.push(data.customers_list[key].id         + ' - ' +
+        listCustomers.push(data.customers_list[key].id + '| ' +
                            data.customers_list[key].first_name + '   ' +
                            data.customers_list[key].last_name);
       }
@@ -19,7 +19,8 @@ $(function () {
         source: listCustomers,
         delay:500
        },
-       showAutocompleteOnFocus: true
+       showAutocompleteOnFocus: true,
+       delimiter: ['**', ','],
       });
 
   })

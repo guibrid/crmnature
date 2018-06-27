@@ -5,6 +5,8 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Event\Event;
+use ArrayObject;
 
 /**
  * Memberships Model
@@ -76,8 +78,7 @@ class MembershipsTable extends Table
 
         $validator
             ->dateTime('expiration')
-            ->requirePresence('expiration', 'create')
-            ->notEmpty('expiration');
+            ->allowEmpty('expiration');
 
         $validator
             ->numeric('price')
@@ -92,8 +93,7 @@ class MembershipsTable extends Table
         $validator
             ->scalar('note')
             ->maxLength('note', 255)
-            ->requirePresence('note', 'create')
-            ->notEmpty('note');
+            ->allowEmpty('note');
 
         return $validator;
     }
@@ -111,5 +111,24 @@ class MembershipsTable extends Table
         $rules->add($rules->existsIn(['payment_id'], 'Payments'));
 
         return $rules;
+    }
+
+    /**
+     * L’event Model.beforeMarshal est déclenché avant que les données
+     * de request ne soient converties en entities.
+     */
+    public function beforeMarshal(Event $event, ArrayObject $data, ArrayObject $options)
+    {
+        // Method newMembership
+        // Traitement de la listes des customers associé au memberships
+        // On extrait uniquement les ids de l'input $data['customers']['_ids']
+        if ( !empty($data['customers']['_ids']) && is_string( $data['customers']['_ids'] )  ){
+          preg_match_all("/[0-9]{1,}|$/", $data['customers']['_ids'], $list_ids);
+          if(empty($list_ids[0][count($list_ids[0])-1])) {
+            unset($list_ids[0][count($list_ids[0])-1]); // Supprimer la dernière ligne vide du tableau
+          }
+          $data['customers']['_ids']= $list_ids[0];
+        }
+
     }
 }

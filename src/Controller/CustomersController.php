@@ -166,4 +166,18 @@ class CustomersController extends AppController
         $this->set(compact('customer'));
 
     }
+
+    /**
+     * GetAllCustomers method
+     *
+     * liste de tous les customers avec en sortie 'nom prenom telephone'
+     */
+    public function GetAllCustomers()
+    {
+        if ($this->request->is('ajax')) {
+            $customers_list = $this->Customers->find('all');
+            $this->set('customers_list', $customers_list);
+            $this->set('_serialize', ['customers_list']);
+        }
+    }
 }

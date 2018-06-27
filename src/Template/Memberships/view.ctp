@@ -13,6 +13,8 @@
         <li><?= $this->Html->link(__('New Membership'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Packages'), ['controller' => 'Packages', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Package'), ['controller' => 'Packages', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Payment'), ['controller' => 'Payments', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Cares'), ['controller' => 'Cares', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Care'), ['controller' => 'Cares', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?> </li>
@@ -31,8 +33,16 @@
             <td><?= $membership->has('package') ? $this->Html->link($membership->package->name, ['controller' => 'Packages', 'action' => 'view', $membership->package->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Payment') ?></th>
+            <td><?= $membership->has('payment') ? $this->Html->link($membership->payment->title, ['controller' => 'Payments', 'action' => 'view', $membership->payment->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($membership->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Price') ?></th>
+            <td><?= $this->Number->format($membership->price) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Balance') ?></th>

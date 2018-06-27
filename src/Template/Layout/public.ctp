@@ -1,4 +1,7 @@
-
+<script>
+  //Defnie l'url de l'appli pour utilisation dans les fichier js avec la varialbe baseUrl
+  var baseUrl = '<?php echo $this->Url->build('/', true); ?>';
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -8,10 +11,11 @@
   <title>Nature App</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<?=  $this->Html->css('custom') ?>
+<?= $this->Html->css('https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css') ?>
+<?= $this->Html->css('custom') ?>
+<?= $this->fetch('css') ?>
+
 
 
 </head>
@@ -25,9 +29,13 @@
 <?php echo $this->Flash->render('auth'); ?>
 <?php echo $this->fetch('content'); ?>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<?= $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js') ?>
+<?= $this->Html->script('https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js') ?>
+<?= $this->Html->script('https://use.fontawesome.com/releases/v5.0.13/js/all.js') ?>
+<?= $this->Html->script('custom') ?>
+<?= $this->fetch('scriptBottom') ?>
 
-<?=  $this->Html->script('custom') ?>
+
+
 </body>
 </html>

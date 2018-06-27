@@ -1,12 +1,34 @@
 /************************************
 Général settings
 ************************************/
-body {
-  text-align: center;
-}
 #logo {
   margin: 15px;
 }
+
+/* Date input style */
+@media (max-width: 575px) {
+  .date-input-year, .date-input-month, .date-input-day {  width: 100px; display: inline-block; margin-right: 5px;}
+ }
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .date-input-year, .date-input-month, .date-input-day {  width: 150px; display: inline-block; margin-right: 5px;}
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .date-input-year, .date-input-month, .date-input-day {  width: 150px; display: inline-block; margin-right: 5px;}
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+.date-input-year, .date-input-month, .date-input-day {  width: 150px; display: inline-block; margin-right: 5px;}
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+.date-input-year, .date-input-month, .date-input-day {  width: 150px; display: inline-block; margin-right: 5px;}
+ }
+
 
 /************************************
 Search page
@@ -26,7 +48,7 @@ table.research td.valid {
   text-align: right;
 }
 
-.date-input-year, .date-input-day, .date-input-month{
+/*.date-input-year, .date-input-day, .date-input-month{
   display: inline-block;
 }
 
@@ -36,7 +58,7 @@ table.research td.valid {
 
 .date-label {
   font-size: 20px;
-}
+}*/
 
 /************************************
 Treatment page

@@ -104,4 +104,19 @@ class PackagesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * Get Price and Real value by id by ajax request
+     *
+     */
+    public function getPriceValueById()
+    {
+        if ($this->request->is('ajax')) {
+          $package_value = $this->Packages
+                                ->get($this->request->data['package_id']);
+          $this->set('package_value', $package_value);
+          $this->set('_serialize', ['package_value']);
+        }
+    }
+
 }

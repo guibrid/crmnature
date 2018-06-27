@@ -21,7 +21,7 @@ class MembershipsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Packages']
+            'contain' => ['Packages', 'Payments']
         ];
         $memberships = $this->paginate($this->Memberships);
 
@@ -38,7 +38,7 @@ class MembershipsController extends AppController
     public function view($id = null)
     {
         $membership = $this->Memberships->get($id, [
-            'contain' => ['Packages', 'Customers', 'Cares']
+            'contain' => ['Packages', 'Payments', 'Customers', 'Cares']
         ]);
 
         $this->set('membership', $membership);
@@ -62,8 +62,9 @@ class MembershipsController extends AppController
             $this->Flash->error(__('The membership could not be saved. Please, try again.'));
         }
         $packages = $this->Memberships->Packages->find('list', ['limit' => 200]);
+        $payments = $this->Memberships->Payments->find('list', ['limit' => 200]);
         $customers = $this->Memberships->Customers->find('list', ['limit' => 200]);
-        $this->set(compact('membership', 'packages', 'customers'));
+        $this->set(compact('membership', 'packages', 'payments', 'customers'));
     }
 
     /**
@@ -88,8 +89,9 @@ class MembershipsController extends AppController
             $this->Flash->error(__('The membership could not be saved. Please, try again.'));
         }
         $packages = $this->Memberships->Packages->find('list', ['limit' => 200]);
+        $payments = $this->Memberships->Payments->find('list', ['limit' => 200]);
         $customers = $this->Memberships->Customers->find('list', ['limit' => 200]);
-        $this->set(compact('membership', 'packages', 'customers'));
+        $this->set(compact('membership', 'packages', 'payments', 'customers'));
     }
 
     /**
@@ -110,5 +112,33 @@ class MembershipsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * New membership
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function newMembership()
+    {
+        $this->viewBuilder()->layout('public');
+        $membership = $this->Memberships->newEntity();
+        if ($this->request->is('post')) {
+            $membership = $this->Memberships->patchEntity($membership, $this->request->getData());
+            if ($this->Memberships->save($membership)) {
+                $this->Flash->success(__('The membership has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The membership could not be saved. Please, try again.'));
+        }
+        $packages = $this->Memberships->Packages->find('list', ['limit' => 200]);
+        $payments = $this->Memberships->Payments->find('list')
+                                     ->where(['OR' => [
+                                                        ['id' => 1], ['id' => 2]
+                                                      ]
+                                            ]);
+        $customers = $this->Memberships->Customers->find('list', ['limit' => 200]);
+        $this->set(compact('membership', 'packages', 'payments', 'customers'));
     }
 }

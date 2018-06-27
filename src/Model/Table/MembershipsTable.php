@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Memberships Model
  *
  * @property \App\Model\Table\PackagesTable|\Cake\ORM\Association\BelongsTo $Packages
+ * @property \App\Model\Table\PaymentsTable|\Cake\ORM\Association\BelongsTo $Payments
  * @property \App\Model\Table\CaresTable|\Cake\ORM\Association\HasMany $Cares
  * @property \App\Model\Table\CustomersTable|\Cake\ORM\Association\BelongsToMany $Customers
  *
@@ -47,6 +48,10 @@ class MembershipsTable extends Table
             'foreignKey' => 'package_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Payments', [
+            'foreignKey' => 'payment_id',
+            'joinType' => 'INNER'
+        ]);
         $this->hasMany('Cares', [
             'foreignKey' => 'membership_id'
         ]);
@@ -75,6 +80,11 @@ class MembershipsTable extends Table
             ->notEmpty('expiration');
 
         $validator
+            ->numeric('price')
+            ->requirePresence('price', 'create')
+            ->notEmpty('price');
+
+        $validator
             ->numeric('balance')
             ->requirePresence('balance', 'create')
             ->notEmpty('balance');
@@ -98,6 +108,7 @@ class MembershipsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['package_id'], 'Packages'));
+        $rules->add($rules->existsIn(['payment_id'], 'Payments'));
 
         return $rules;
     }

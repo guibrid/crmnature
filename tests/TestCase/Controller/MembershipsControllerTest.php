@@ -18,6 +18,7 @@ class MembershipsControllerTest extends IntegrationTestCase
     public $fixtures = [
         'app.memberships',
         'app.packages',
+        'app.payments',
         'app.cares',
         'app.customers',
         'app.customers_memberships'

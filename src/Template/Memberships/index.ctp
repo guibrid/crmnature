@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('New Membership'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Packages'), ['controller' => 'Packages', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Package'), ['controller' => 'Packages', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Payment'), ['controller' => 'Payments', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Cares'), ['controller' => 'Cares', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Care'), ['controller' => 'Cares', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Customers'), ['controller' => 'Customers', 'action' => 'index']) ?></li>
@@ -23,9 +25,11 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('expiration') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('balance') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('note') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('package_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('payment_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -36,9 +40,11 @@
             <tr>
                 <td><?= $this->Number->format($membership->id) ?></td>
                 <td><?= h($membership->expiration) ?></td>
+                <td><?= $this->Number->format($membership->price) ?></td>
                 <td><?= $this->Number->format($membership->balance) ?></td>
                 <td><?= h($membership->note) ?></td>
                 <td><?= $membership->has('package') ? $this->Html->link($membership->package->name, ['controller' => 'Packages', 'action' => 'view', $membership->package->id]) : '' ?></td>
+                <td><?= $membership->has('payment') ? $this->Html->link($membership->payment->title, ['controller' => 'Payments', 'action' => 'view', $membership->payment->id]) : '' ?></td>
                 <td><?= h($membership->created) ?></td>
                 <td><?= h($membership->modified) ?></td>
                 <td class="actions">

@@ -176,6 +176,8 @@ class CaresController extends AppController
       if ($this->request->is('post')) {
         $session->write('payment_id',$this->request->data['payment_id']);
 
+        //TODO Detruire la variable de session membership_id si l'utilisateur fait un retour arrière de la method carepromotion()
+        //pour pouvoir choisir à nouveau un type de paiement et un nouveau membership au bseoin
         if ($this->request->data['membership_id']==="") {
             $session->write('membership_id',"");
         } else {
@@ -184,10 +186,12 @@ class CaresController extends AppController
 
         $payment = TableRegistry::get('Payments');
         $session->write('payment_title', $payment->get($this->request->data['payment_id'])->title);//Write
+
         return $this->redirect(['action' => 'carePromotion']);
       }
 
       $payments = $this->Cares->Payments->find('list', ['limit' => 200]);
+
       // Get the liste of the membership of the custommer
       $userId = $session->read('customer_id'); // Save the customerId in var
       $memberships = $this->Cares->Memberships->find('list', [
@@ -208,8 +212,18 @@ class CaresController extends AppController
       $this->viewBuilder()->layout('public');
       $session = $this->request->session();
       $care = $this->Cares->newEntity();
+
       if ($this->request->is('post')) {
 
+        //Si le payment est fait via un abonement on met à jour la balance de l'abo
+        if ($this->request->getData('membership_id')){
+          $membershipsTable = TableRegistry::get('Memberships');
+          $membership = $membershipsTable->get($this->request->getData('membership_id'));
+          $membership->balance = $this->request->getData('balance');
+          $membershipsTable->save($membership);
+        }
+
+        //Ajout du nouveau Care
         $care = $this->Cares->patchEntity($care, $this->request->getData());
         if ($this->Cares->save($care)) {
             $this->Flash->success(__('The care has been saved.'));
@@ -220,12 +234,39 @@ class CaresController extends AppController
 
       }
 
+
+      if ($session->read('membership_id')) {
+      // Recherche des memberships si selectionne
+      $memberships = TableRegistry::get('Memberships');
+      //Get data form the selected membership
+      $selectedMembership = $memberships->get( $session->read('membership_id'),
+                                               [ 'contain' => ['Packages'] ]);
+      //Get data form all the other membership of the customer
+      $otherMembership = $memberships->find('all')
+                                     ->where(['Memberships.id  NOT IN' => $session->read('membership_id')])
+                                     ->contain(['Customers']);
+      //On associe la recheche dans la table Customers (liaison MembershipCustomer table)
+      $userId = $session->read('customer_id'); // Save the customerId in var
+      $otherMembership->matching('Customers', function ($q) use ($userId) {
+          return $q->where(['Customers.id' => $userId]); });
+
+      }
       $prices = $this->Cares->Prices->find('list')
                 ->where(['treatment_id =' => $session->read('treatment_id'),
                          'duration_id =' => $session->read('duration_id')]);
       $price = $prices->toArray();
-      $promotions = $this->Cares->Promotions->find('list', ['limit' => 200]);
-      $this->set(compact('care', 'price', 'promotions'));
+
+      $promotions = $this->Cares->Promotions->find('all', ['limit' => 200,
+                                                           'fields'=>['id','name','effect']]);
+      // Creer notre list d'option custom
+      $options_promotions = [];
+      foreach($promotions->toArray() as $key => $val){
+
+           $options_promotions[$val['id']] = ['text' => $val['name'], 'value' => $val['id'], 'data-effect' => $val['effect']];
+      }
+
+       $this->set('options_promotions', $options_promotions);
+      $this->set(compact('care', 'price', 'promotions', 'selectedMembership', 'otherMembership', 'options_promotions'));
 
     }
 }

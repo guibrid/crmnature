@@ -134,7 +134,7 @@ class MembershipsController extends AppController
                 //debug($this->set('errors', $membership->errors()));
                 $this->Flash->success(__('The membership has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Customers', 'action' => 'search']);
             }
             $this->Flash->error(__('The membership could not be saved. Please, try again.'));
         }

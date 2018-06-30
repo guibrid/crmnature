@@ -30,7 +30,7 @@
       </div>
 
       <div class="form-group">
-          <?= $this->Form->button( __('Next >>'), ['class' => 'btn btn-primary']) ?>
+          <?= $this->Form->button( __('Next'), ['class' => 'btn btn-primary']) ?>
       </div>
 
       <?= $this->Form->end() ?>

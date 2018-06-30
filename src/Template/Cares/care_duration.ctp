@@ -31,7 +31,7 @@
        </div>
 
 <br />
-    <?= $this->Form->button( __('Next >>'), ['class' => 'btn btn-primary']) ?>
+    <?= $this->Form->button( __('Next'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
     </div>
   </div>

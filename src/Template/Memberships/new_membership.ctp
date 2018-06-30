@@ -94,7 +94,7 @@
                                            ) ?>
         </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button( __('Submit'), ['class' => 'btn btn-primary']) ?>
     <?= $this->Form->end() ?>
   </div>
 </div>

@@ -59,31 +59,55 @@ msgid "New membership"
 msgstr "เพิ่มสมาชิกใหม่"
 
 msgid "Package"
-msgstr "Translation"
+msgstr "แพ็คเกจ"
 
 msgid "Select package"
-msgstr "Translation"
+msgstr "เลือกแพ็คเกจ"
 
 msgid "Payment"
-msgstr "Translation"
+msgstr "ชำระเงิน"
 
 msgid "Select payment"
-msgstr "Translation"
+msgstr "วิธีชำระเงิน"
 
 msgid "Price"
-msgstr "Translation"
+msgstr "ราคา"
 
 msgid "Balance"
-msgstr "Translation"
+msgstr "ยอดคงเหลือ"
 
 msgid "Notes"
-msgstr "Translation"
+msgstr "หมายเหตุ"
 
 msgid "If you have comments about this membership..."
-msgstr "Translation"
+msgstr "หมายเหตุเกี่ยวกับลูกค้า (ถ้ามี)"
 
 msgid "Customers using this membership"
-msgstr "Translation"
+msgstr "สมาชิกที่สามารถใช้แพ็คเกจนี้"
 
 msgid "Expiration date"
-msgstr "Translation"
+msgstr "วันหมดอายุ"
+
+msgid "Select duration"
+msgstr "ระยะเวลา"
+
+msgid "Your treatment"
+msgstr "ทรีทเม้นท์"
+
+msgid "Next"
+msgstr "ต่อไป"
+
+msgid "balance before treatment"
+msgstr "ยอดคงเหลือก่อนใช้"
+
+msgid "Apply promotion"
+msgstr "เพิ่มโปรโมชั่น"
+
+msgid "Treatment price"
+msgstr "ราคา"
+
+msgid "Membership balance after treatment"
+msgstr "ยอดคงเหลือหลังใช้"
+
+msgid "Save the treatment"
+msgstr "บันทึก"

@@ -24,7 +24,7 @@
                                  'value' => $session->read('membership_id')]) ?>
 
       <div class="form-group">
-        <label><?= $selectedMembership->package->name ?> balance before treatment</label>
+        <label><?= $selectedMembership->package->name ?> <?= __('balance before treatment') ?></label>
            <div class="input-group">
 
              <?= $this->Form->control('old_balance',
@@ -42,10 +42,10 @@
       <?php } ?>
 
       <div class="form-group">
-      <label>Apply promotion</label>
+      <label><?= __('Apply promotion') ?></label>
       <?=  $this->Form->control('promotion_id', [
-'id' => 'promotion_id',
-        'options' => $options_promotions,
+                                'id' => 'promotion_id',
+                                'options' => $options_promotions,
                                 'class' => 'form-control form-control-lg',
                                 'empty' => __('Type of promotion'),
                                 'label' => false,
@@ -53,7 +53,7 @@
       </div>
 
       <div class="form-group">
-          <label>Treatment price</label>
+          <label><?= __('Treatment price') ?></label>
            <div class="input-group">
              <?= $this->Form->control('price_value',
                                      ['id' => 'price_value',
@@ -71,7 +71,7 @@
 
       <?php if (isset($selectedMembership)) { ?>
       <div class="form-group">
-        <label>Membership balance after treatment</label>
+        <label><?= __('Membership balance after treatment') ?></label>
            <div class="input-group">
              <?= $this->Form->control('balance',
                                      ['id' => 'balance',

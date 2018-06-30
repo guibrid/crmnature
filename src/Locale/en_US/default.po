@@ -84,3 +84,27 @@ msgstr "Translation"
 
 msgid "Expiration date"
 msgstr "Translation"
+
+msgid "Select duration"
+msgstr "Translation"
+
+msgid "Your treatment"
+msgstr "Translation"
+
+msgid "Next"
+msgstr "Translation"
+
+msgid "balance before treatment"
+msgstr "Translation"
+
+msgid "Apply promotion"
+msgstr "Translation"
+
+msgid "Treatment price"
+msgstr "Translation"
+
+msgid "Membership balance after treatment"
+msgstr "Translation"
+
+msgid "Save the treatment"
+msgstr "Translation"

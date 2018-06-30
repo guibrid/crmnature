@@ -28,6 +28,13 @@
             ['class' => 'btn btn-primary']
         ); ?>
       </p>
+      <p>
+        <?=  $this->Html->link(
+            __('New membership'),
+            ['controller' => 'Memberships', 'action' => 'new-membership'],
+            ['class' => 'btn btn-primary']
+        ); ?>
+      </p>
 
     </div>
   </div>

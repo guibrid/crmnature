@@ -91,6 +91,14 @@ class MembershipsTable extends Table
             ->notEmpty('balance');
 
         $validator
+            ->scalar('package_id')
+            ->notEmpty('package_id');
+
+        $validator
+            ->scalar('payment_id')
+            ->notEmpty('payment_id');
+
+        $validator
             ->scalar('note')
             ->maxLength('note', 255)
             ->allowEmpty('note');

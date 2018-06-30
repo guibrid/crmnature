@@ -64,6 +64,8 @@ class AppController extends Controller
             ]
         ]);
 
+        //TODO Si lors de la reconnexion la session et les variables n'existe plus rediriger vers la customers/search
+
 
         /*
          * Enable the following components for recommended CakePHP security settings.

@@ -79,3 +79,16 @@ div.treatment label {
   color: #295705;
   font-weight: bold;
 }
+
+/************************************
+memberships page
+************************************/
+div.new_membership select[name="expiration[second]"]{
+  visibility: hidden;
+}
+div.new_membership select[name="expiration[minute]"]{
+  visibility: hidden;
+}
+div.new_membership select[name="expiration[hour]"] {
+  visibility: hidden;
+}

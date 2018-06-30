@@ -18,7 +18,7 @@
           <?=  $this->Form->control('payment_id', [ 'id'      => 'payment_id',
                                                     'options' => $payments,
                                                     'class'   => 'form-control form-control-lg',
-                                                    'empty'   => __('Type of payment'),
+                                                    'empty'   => __('Select payment'),
                                                     'label'   => false]) ?>
       </div>
 

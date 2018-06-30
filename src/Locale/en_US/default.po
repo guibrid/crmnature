@@ -51,3 +51,36 @@ msgstr "Translation"
 
 msgid "The customer could not be saved. Please, try again."
 msgstr "Translation"
+
+msgid "New membership"
+msgstr "Translation"
+
+msgid "Package"
+msgstr "Translation"
+
+msgid "Select package"
+msgstr "Translation"
+
+msgid "Payment"
+msgstr "Translation"
+
+msgid "Select payment"
+msgstr "Translation"
+
+msgid "Price"
+msgstr "Translation"
+
+msgid "Balance"
+msgstr "Translation"
+
+msgid "Notes"
+msgstr "Translation"
+
+msgid "If you have comments about this membership..."
+msgstr "Translation"
+
+msgid "Customers using this membership"
+msgstr "Translation"
+
+msgid "Expiration date"
+msgstr "Translation"
